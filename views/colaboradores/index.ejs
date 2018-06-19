@@ -13,8 +13,8 @@
       <% if(colaboradores.length>0) { %>
       <table class="list-table">
         <thead>
-            <tr style="width: 200px;">
-            <th>Nome do colaborador</th>
+            <tr>
+            <th style="width: 200px;">Nome do colaborador</th>
             <th>Função</th>
             <th>Setor</th>
           </tr>
@@ -23,7 +23,7 @@
 
           <% for(var i=0; i<colaboradores.length;i++) { %>
             <tr>
-              <td><a href="/colaboradores/show/<%= colaboradores[i]._id%>"><%= colaboradores[i].nome%></a></td>
+              <td style="width: 200px;"><a href="/colaboradores/show/<%= colaboradores[i]._id%>"><%= colaboradores[i].nome%></a></td>
               <td><%= colaboradores[i].funcao%></td>
               <td><%= colaboradores[i].setor%></td>
             </tr>
