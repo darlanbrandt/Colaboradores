@@ -6,8 +6,21 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Para efetuar o cadastro de um novo colaborador, clique no botão abaixo para acessar o formulário.</p>
-    <p id="botaoNovoCadastro">Efetuar novo cadastro</p>
-    <p>Para acessar a lista de colaboradores cadastrados, clique <a href="/colaboradores">aqui</a></p>
+      <table class="indexTable">
+        <tr>
+          <th id="tableHeader">Cadastro de novos colaboradores</th>
+          <th id="tableHeader">Listar colaboradores cadastrados</th>
+        </tr>
+        <tr>
+          <td><p>Para efetuar o cadastro de um novo colaborador, clique no botão abaixo</p><br>
+          <center><p class="btn botaoCadastro"><a href="/colaboradores/create">Efetuar novo cadastro</a></p></center>
+        <br>
+          <td><p>Para acessar a lista de colaboradores cadastrados, clique no botão abaixo</p><br>
+          <center><p class="btn botaoCadastro"><a href="/colaboradores">Visualizar cadastros</a></center>
+        <br> 
+          <a href="@routes.Assets.at("images/desligamento.png")"><strong>Clique aqui</strong></a> para visualizar o fluxograma de desligamento</td>
+        </tr>
+  </table>
+      </center>
   </body>
 </html>

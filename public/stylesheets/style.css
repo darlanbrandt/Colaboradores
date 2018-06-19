@@ -203,6 +203,12 @@ fieldset[disabled] a.btn {
   border-color: #4582EC;
 }
 
+.btn.botaoCadastro {
+  color: #fff;
+  background-color: #4582EC;
+  border-color: #4582EC;
+}
+
 .btn.primary:hover {
   color: #fff;
   background-color: #226be8;
