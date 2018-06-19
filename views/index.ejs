@@ -5,20 +5,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="outerDiv"><h1><%= title %></h1>
-      <table class="indexTable">
+    <div class="outerDiv">
+      <h1><%= title %></h1>
+      <br>
+      <center><table class="indexTable">
         <tr>
           <th id="tableHeader">Cadastro de novos colaboradores</th>
           <th id="tableHeader">Listar colaboradores cadastrados</th>
         </tr>
         <tr>
           <td><p>Para efetuar o cadastro de um novo colaborador, clique no botão abaixo</p><br>
-          <center><p class="btn botaoCadastro"><a href="/colaboradores/create">Efetuar novo cadastro</a></p></center>
+          <center><p class="btn botaoCadastro"><a class="linkBotao" href="/colaboradores/create">Efetuar novo cadastro</a></p></center>
         <br>
           <td><p>Para acessar a lista de colaboradores cadastrados, clique no botão abaixo</p><br>
-          <center><p class="btn botaoCadastro"><a href="/colaboradores">Visualizar cadastros</a></center>
+          <center><p class="btn botaoCadastro"><a class="linkBotao" href="/colaboradores">Visualizar cadastros</a></center>
        </tr>
   </table>
+</center>
 </div>
   </body>
 </html>
