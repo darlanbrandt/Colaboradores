@@ -8,37 +8,31 @@
     <div class="outerDiv">
       <h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
       <br>
-      <h1>Informações do colaborador</h1>
-      <table>
+      <center><h1>Informações do colaborador</h1>
+        <table class="dadosSolicitacao">
         <tbody>
           <tr>
             <td>Nome</td>
-            <td>:</td>
             <td><%= colaborador.nome %></td>
           </tr>
           <tr>
             <td>Setor</td>
-            <td>:</td>
             <td><%= colaborador.setor %></td>
           </tr>
           <tr>
             <td>Função</td>
-            <td>:</td>
             <td><%= colaborador.funcao %></td>
           </tr>
           <tr>
             <td>CPF</td>
-            <td>:</td>
             <td><%= colaborador.cpf %></td>
           </tr>
           <tr>
             <td>Data de início</td>
-            <td>:</td>
             <td><%= colaborador.dataInicio %></td>
           </tr>
           <tr>
             <td>Celular corporativo</td>
-            <td>:</td>
             <% if(colaborador.celularCorporativo = true){ %>
               <td>Sim</td>
             <% } else { %>  
@@ -51,6 +45,7 @@
       <form action="/colaboradores/delete/<%= colaborador._id%>" method="post">
         <button type="submit" class="btn danger">Excluir cadastro</button>
       </form>
+    </center>
     </div>
   </body>
 </html>
