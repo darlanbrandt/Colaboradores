@@ -41,15 +41,15 @@
             <td>:</td>
             <% if(colaborador.celularCorporativo = true){ %>
               <td>Sim</td>
-            <% } else{ %>  
+            <% } else { %>  
               <td>Não</td>
            <% } %>
           </tr>
         </tbody>
       </table>
-      <h3><a href="/colaboradores/edit/<%= colaborador._id%>">Editar cadastro</a>
+      <h3><a class="linkBotao" href="/colaboradores/edit/<%= colaborador._id%>" class="btn primary">Editar cadastro</a> <br>
       <form action="/colaboradores/delete/<%= colaborador._id%>" method="post">
-        <button type="submit">Excluir cadastro</button>
+        <button type="submit" class="btn danger">Excluir cadastro</button>
       </form>
     </div>
   </body>
