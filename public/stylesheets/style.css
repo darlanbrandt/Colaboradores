@@ -780,21 +780,21 @@ input[type="button"].btn-block {
 
 tr:nth-child(even) { background-color: #f2f2f2; }
 
-#ListaSolicitacoes {
+table {
     border-collapse: collapse;
     width: 70%;
 }
 
-#ListaSolicitacoes td, #ListaSolicitacoes th {
+td, th {
     border: 1px solid #ddd;
     padding: 2px;
 }
 
-#ListaSolicitacoes tr:nth-child(even){background-color: #f2f2f2;}
+tr:nth-child(even){background-color: #f2f2f2;}
 
-#ListaSolicitacoes tr:hover {background-color: #ddd;}
+tr:hover {background-color: #ddd;}
 
-#ListaSolicitacoes th {
+th {
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: center;

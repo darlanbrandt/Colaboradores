@@ -5,7 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="outerDiv"><h1><%= title %></h1>
       <table class="indexTable">
         <tr>
           <th id="tableHeader">Cadastro de novos colaboradores</th>
@@ -17,10 +17,8 @@
         <br>
           <td><p>Para acessar a lista de colaboradores cadastrados, clique no botão abaixo</p><br>
           <center><p class="btn botaoCadastro"><a href="/colaboradores">Visualizar cadastros</a></center>
-        <br> 
-          <a href="@routes.Assets.at("images/desligamento.png")"><strong>Clique aqui</strong></a> para visualizar o fluxograma de desligamento</td>
-        </tr>
+       </tr>
   </table>
-      </center>
+</div>
   </body>
 </html>
