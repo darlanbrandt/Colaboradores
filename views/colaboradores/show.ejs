@@ -6,9 +6,9 @@
   </head>
   <body>
     <div class="outerDiv">
-      <h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
+      <center><h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
       <br>
-      <center><h1>Informações do colaborador</h1>
+      <h1>Informações do colaborador</h1>
         <table class="dadosSolicitacao">
         <tbody>
           <tr>
@@ -33,15 +33,15 @@
           </tr>
           <tr>
             <td>Celular corporativo</td>
-            <% if(colaborador.celularCorporativo = true){ %>
+            <% if(colaborador.celularCorporativo) { %>
               <td>Sim</td>
-            <% } else { %>  
+            <% } else { %> 
               <td>Não</td>
-           <% } %>
+            <% } %>
           </tr>
         </tbody>
       </table>
-      <h3><a class="linkBotao" href="/colaboradores/edit/<%= colaborador._id%>" class="btn primary">Editar cadastro</a> <br>
+      <h3><a href="/colaboradores/edit/<%= colaborador._id%>" class="btn primary">Editar cadastro</a> <br>
       <form action="/colaboradores/delete/<%= colaborador._id%>" method="post">
         <button type="submit" class="btn danger">Excluir cadastro</button>
       </form>

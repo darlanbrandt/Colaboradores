@@ -5,8 +5,8 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <div class="container">
-      <h3><a href="/colaboradores">Lista de colaboradores</a></h3>
+    <div class="outerDiv">
+      <center><h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
       <h1>Editar cadastro</h1>
       <form action="/colaboradores/update/<%= colaborador._id%>" method="post">
         <table class="dadosSolicitacao">
@@ -41,6 +41,7 @@
           </tbody>
         </table>
       </form>
+      </center>
     </div>
   </body>
 </html>

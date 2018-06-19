@@ -8,10 +8,12 @@
     <div class="outerDiv">
       <h3><p class="btn primary"><a class="linkBotao" href="/colaboradores/create">Novo cadastro</a></h3>
       <h1>Lista de colaboradores</h1>
+      <br>
+      <center>
       <% if(colaboradores.length>0) { %>
       <table class="list-table">
         <thead>
-          <tr>
+            <tr style="width: 200px;">
             <th>Nome do colaborador</th>
             <th>Função</th>
             <th>Setor</th>
@@ -31,6 +33,7 @@
       <% } else { %>
         <div>Não há nenhum cadastro.</div>
       <% } %>
+    </center>
     </div>
   </body>
 </html>
