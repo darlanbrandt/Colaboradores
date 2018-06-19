@@ -138,6 +138,12 @@ footer {
 #copyright {color: #EEE; font-size: 80%;}
 a {text-decoration: none; color: #4582EC;}
 a:hover { color: #226be8; }
+.linkBotao {text-decoration: none; color: white;}
+
+.outerDiv {
+  text-align: center;
+  padding: 30px;
+}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 ol, ul { list-style: none; }
