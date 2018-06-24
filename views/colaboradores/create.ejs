@@ -3,8 +3,14 @@
   <head>
     <title>Cadastrar colaborador</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/jquery.mask.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
   </head>
   <body>
+      <script type="text/javascript" src="/js/main.js"></script>
+      <script type="text/javascript" src="/js/jquery.mask.js"></script>
+      <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
     <div class="outerDiv">
         <center><h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
         <br>
@@ -12,6 +18,10 @@
       <form action="/colaboradores/save" method="post">
         <table class="dadosSolicitacao">
           <tbody>
+            <tr>
+              <td>CPF</td>
+              <td><input type="text" name="cpf" class="cpf" /></td>
+            </tr>
             <tr>
               <td>Nome completo</td>
               <td><input type="text" name="nome" /></td>
@@ -23,10 +33,6 @@
             <tr>
               <td>Função</td>
               <td><input type="text" name="funcao" /></td>
-            </tr>
-            <tr>
-              <td>CPF</td>
-              <td><input type="text" name="cpf" class="cpf" /></td>
             </tr>
             <tr>
               <td>Data de início</td>
@@ -44,8 +50,6 @@
       </form>
       </center>
     </div>
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/js/jquery.mask.js"></script>
-    <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+    
   </body>
 </html>

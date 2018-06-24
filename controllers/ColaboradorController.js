@@ -1,7 +1,7 @@
 // Variável que importa o módulo Mongoose, que gerencia o BD Mongo
 var mongoose = require("mongoose");
 var Colaborador = require("../models/Colaborador");
-
+ 
 var colaboradorController = {};
 
 // Mostra a lista de Colaboradores
@@ -13,6 +13,19 @@ colaboradorController.list = function(req, res) {
     else {
       // Gera a página com a lista de colaboradores
       res.render("../views/colaboradores/index", {colaboradores: colaboradores});
+    }
+  });
+};
+
+// Envia JSON com a lista de Colaboradores
+colaboradorController.listJson = function(req, res) {
+  Colaborador.find({}).exec(function (err, colaboradores) {
+    if (err) {
+      console.log("Erro:", err);
+    }
+    else {
+      // Gera a página com a lista de colaboradores
+      res.json(colaboradores);
     }
   });
 };
@@ -69,7 +82,7 @@ colaboradorController.edit = function(req, res) {
 
 // Faz a atualização do colaborador
 colaboradorController.update = function(req, res) {
-  Colaborador.findByIdAndUpdate(req.params.id, { $set: { nome: req.body.nome, setor: req.body.setor, funcao: req.body.funcao, cpf: req.body.cpf, dataInicio: req.body.dataInicio, celularCorporativo: req.body.celularCorporativo }}, { new: true }, function (err, colaborador) {
+  Colaborador.findByIdAndUpdate(req.params.id, { $set: { cpf: req.body.cpf, nome: req.body.nome, setor: req.body.setor, funcao: req.body.funcao, dataInicio: req.body.dataInicio, celularCorporativo: req.body.celularCorporativo }}, { new: true }, function (err, colaborador) {
     if (err) {
       console.log(err);
       res.render("../views/colaboradores/edit", {colaborador: req.body});
