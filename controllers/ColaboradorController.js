@@ -43,6 +43,19 @@ colaboradorController.show = function(req, res) {
   });
 };
 
+// Retorna o colaborador de acordo com o CPF
+colaboradorController.showJson = function(req, res) {
+  // usa o request (req) para solicitar o id
+  Colaborador.findOne({_id: req.params.id}).exec(function (err, colaborador) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.json(colaborador);
+    }
+  });
+};
+
 // Gera um novo registro de colaborador
 colaboradorController.create = function(req, res) {
   res.render("../views/colaboradores/create");

@@ -7,4 +7,8 @@ router.get('/', function(req, res) {
   colaborador.listJson(req, res);
 });
 
+router.get('/show/:id', function(req, res) {
+  colaborador.showJson(req, res);
+});
+
 module.exports = router;
