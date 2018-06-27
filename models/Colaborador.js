@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var Colaboradores = new mongoose.Schema({
   cpf: {type: String, required: true, unique: true},
   nome: {type: String, required: true},
+  email: {type: String, required: true, unique: true},
   setor: {type: String, required: true},
   funcao: {type: String, required: true},
   dataInicio: Date,

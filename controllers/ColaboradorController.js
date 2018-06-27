@@ -43,7 +43,7 @@ colaboradorController.show = function(req, res) {
   });
 };
 
-// Retorna o colaborador de acordo com o CPF
+// Retorna o colaborador de acordo com o id em JSON
 colaboradorController.showJson = function(req, res) {
   // usa o request (req) para solicitar o id
   Colaborador.findOne({_id: req.params.id}).exec(function (err, colaborador) {
@@ -68,12 +68,12 @@ colaboradorController.save = function(req, res) {
   colaborador.save(function(err) {
     if(err) {
       console.log(err);
-      // se erro, retorna na mesma página
+      console.log(colaborador);
       res.render("../views/colaboradores/create");
     } else {
-      /* vai para a página que retorna o colaborador de acordo com a id
-      ainda retorna via console, mas o erro vai ser enviado para a página e controlado com jQuery*/
+      //vai para a página que retorna o colaborador de acordo com a id
       console.log("Cadastro de colaborador efetuado com sucesso.");
+      console.log(colaborador);
       res.redirect("/colaboradores/show/"+colaborador._id);
     }
   });
@@ -95,7 +95,7 @@ colaboradorController.edit = function(req, res) {
 
 // Faz a atualização do colaborador
 colaboradorController.update = function(req, res) {
-  Colaborador.findByIdAndUpdate(req.params.id, { $set: { cpf: req.body.cpf, nome: req.body.nome, setor: req.body.setor, funcao: req.body.funcao, dataInicio: req.body.dataInicio, celularCorporativo: req.body.celularCorporativo }}, { new: true }, function (err, colaborador) {
+  Colaborador.findByIdAndUpdate(req.params.id, { $set: { cpf: req.body.cpf, nome: req.body.nome, email: req.body.email, setor: req.body.setor, funcao: req.body.funcao, dataInicio: req.body.dataInicio, celularCorporativo: req.body.celularCorporativo }}, { new: true }, function (err, colaborador) {
     if (err) {
       console.log(err);
       res.render("../views/colaboradores/edit", {colaborador: req.body});
