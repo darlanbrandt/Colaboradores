@@ -999,3 +999,4 @@ table-success, table-info, table-warning, table-danger,
   color: #fff;
 }
 
+#success_message{ display: none;}
