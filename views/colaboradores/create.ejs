@@ -52,7 +52,7 @@
         <v-checkbox label="Celular corporativo" v-model="celularCorporativo" name="celularCorporativo"></v-checkbox>
           <center><v-btn color="primary" type="submit" value="Submit" class="mb-2" @click.native="checkForm">Salvar</v-btn></center>
           <p>
-    <input type="submit" value="Submit" @click="checkForm" >  
+    <input type="submit" value="Submit" @click="checkForm" id="enviar" >  
   </p>
     <v-btn @click="clear">clear</v-btn>
   </form>
@@ -79,7 +79,7 @@
       data: {
         fixed: false,
         cpf: '',
-        alert: false,
+        alert: true,
         nome: '',
         email: '',
         dataInicio: '',
@@ -124,13 +124,13 @@
       methods:{
         checkForm:function(e) {
           this.errors = [];
-          if(!this.cpf) { this.errors.push("O campo CPF é obrigatório."); this.alert = true;}
-          if(!this.nome) {this.errors.push("O campo Nome é obrigatório."); this.alert = true;}
-          if(!this.setor) {this.errors.push("O campo Setor é obrigatório."); this.alert = true;}
-          if(!this.funcao) {this.errors.push("O campo Função é obrigatório."); this.alert = true;}
-          if(!this.dataInicio) {this.errors.push("O campo Data de Início é obrigatório."); this.alert = true;}
-          if(!this.email) {this.errors.push("O campo e-mail é obrigatório"); this.alert = true;} 
-            else if(!this.validEmail(this.email)) { this.errors.push("Inserir e-mail válido."); this.alert = true;}
+          if(!this.cpf) this.errors.push("O campo CPF é obrigatório."); 
+          if(!this.nome) this.errors.push("O campo Nome é obrigatório."); 
+          if(!this.setor) this.errors.push("O campo Setor é obrigatório.");
+          if(!this.funcao) this.errors.push("O campo Função é obrigatório."); 
+          if(!this.dataInicio) this.errors.push("O campo Data de Início é obrigatório."); 
+          if(!this.email) { this.errors.push("O campo e-mail é obrigatório");} 
+            else if(!this.validEmail(this.email)) { this.errors.push("Inserir e-mail válido."); }
           
           if(!this.errors.length) return true;
           e.preventDefault();

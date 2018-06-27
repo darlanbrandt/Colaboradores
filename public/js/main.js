@@ -2,6 +2,11 @@
 	$(document).ready(function(){
     $('#cpf').mask('000.000.000-00');
     $('.message').delay(5000).fadeOut(1000);
+    $(".message").hide();
+    $("#enviar").click(function(){
+        $(".message").show();
+        setTimeout(function() {$(".message").hide().fadeOut(1000);}, 3000);
+    });
     /*$('#contact_form').bootstrapValidator({
       // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
       feedbackIcons: {
