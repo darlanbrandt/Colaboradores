@@ -1,39 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Cadastro de colaboradores</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <div class="outerDiv">
-      <h3><p class="btn primary"><a class="linkBotao" href="/colaboradores/create">Novo cadastro</a></h3>
-      <h1>Lista de colaboradores</h1>
-      <br>
-      <center>
-      <% if(colaboradores.length>0) { %>
-      <table class="dadosSolicitacao">
-        <thead>
-            <tr>
-            <th>Nome do colaborador</th>
-            <th>Função</th>
-            <th>Setor</th>
-          </tr>
-        </thead>
-        <tbody>
 
-          <% for(var i=0; i<colaboradores.length;i++) { %>
-            <tr>
-              <td><a href="/colaboradores/show/<%= colaboradores[i]._id%>"><%= colaboradores[i].nome%></a></td>
-              <td><%= colaboradores[i].funcao%></td>
-              <td><%= colaboradores[i].setor%></td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
-      <% } else { %>
-        <div>Não há nenhum cadastro.</div>
-      <% } %>
-    </center>
-    </div>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de colaboradores (INE5646)</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css"></link>
+  <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fundo">
+  <div id="app" >
+    <v-app>
+     <v-toolbar :fixed="fixed" app>
+      <v-spacer></v-spacer>
+      <a id="titulo" href="/"><v-toolbar-title v-text="title"></v-toolbar-title></a>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <main class="fundo">
+      <div class="outerDiv">
+        <div class="innerDiv">
+          <center><h2>Lista de colaboradores</h2>
+            <a href="/colaboradores/create"><strong>Novo cadastro</strong></a>
+            <hr>
+            <br/>
+            <% if(colaboradores.length>0) { %>
+            <table id="lista" class="cadastro">
+              <thead>
+                <tr>
+                  <th>Nome do colaborador</th>
+                  <th>Função</th>
+                  <th>Setor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for(var i=0; i<colaboradores.length;i++) { %>
+                  <tr>
+                    <td><a href="/colaboradores/show/<%= colaboradores[i]._id%>"><%= colaboradores[i].nome%></a></td>
+                    <td><%= colaboradores[i].funcao%></td>
+                    <td><%= colaboradores[i].setor%></td>
+                  </tr>
+                <% } %>
+              </tbody>
+            </table>
+            <% } else { %>
+              <div>Não há nenhum cadastro.</div>
+            <% } %>
+            
+          </center>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <span>&copy; 2018</span>
+      </footer>
+    </v-app>
+  </div>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+  <script src="https://unpkg.com/hamoni-sync@0.4.0/hamoni.dev.js"></script>
+  <script>
+    Vue.component('page', {
+      template: '#page'
+    })
+    new Vue({
+      el: '#app',
+      data: {
+        fixed: true,
+        title: 'Cadastro de colaboradores (INE5646)',
+        cpf: '',
+        nome: '',
+        email: '',
+        setor: '',
+        funcao: '',
+        dataInicio: '',
+        celularCorporativo: ''      
+      },
+
+    })
+  </script>
+</body>
+
 </html>

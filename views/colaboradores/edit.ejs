@@ -1,51 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Editar cadastro do colaborador</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-      <script type="text/javascript" src="/js/main.js"></script>
-      <script type="text/javascript" src="/js/jquery.mask.js"></script>
-      <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
-    <div class="outerDiv">
-      <center><h3><a href="/colaboradores">Voltar para a lista de colaboradores</a></h3>
-      <h1>Editar cadastro</h1>
-      <form action="/colaboradores/update/<%= colaborador._id%>" method="post">
-        <table class="dadosSolicitacao">
-          <tbody>
-            <tr>
-              <td>Nome</td>
-              <td><input type="text" name="nome" value="<%= colaborador.nome %>" /></td>
-            </tr>
-            <tr>
-              <td>Setor</td>
-              <td><input type="text" name="setor" value="<%= colaborador.setor %>" /></td>
-            </tr>
-            <tr>
-              <td>Função</td>
-              <td><input type="text" name="funcao" value="<%= colaborador.funcao %>" /></td>
-            </tr>
-            <tr>
-              <td>CPF</td>
-              <td><input type="text" name="cpf" value="<%= colaborador.cpf %>" class="cpf"/></td>
-            </tr>
-            <tr>
-              <td>Data de Início</td>
-              <td><input type="date" name="dataInicio" value="<%= colaborador.dataInicio %>" /></td>
-            </tr>
-            <tr>
-              <td>Celular corporativo</td>
-              <td><input type="checkbox" name="celularCorporativo" /></td>
-            </tr>
-            <tr>
-              <td colspan="2"><button type="submit" class="btn success">Atualizar cadastro</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-      </center>
-    </div>
-    
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de colaboradores (INE5646)</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+  <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css"></link>
+  <script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/jquery.mask.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.2.1.min.js"></script>
+  <link href="/stylesheets/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="fundo">
+  <div id="app" >
+    <v-app>
+     <v-toolbar :fixed="fixed" app>
+      <v-spacer></v-spacer>
+      <a id="titulo" href="/"><v-toolbar-title v-text="title"></v-toolbar-title></a>
+      <v-spacer></v-spacer>
+    </v-toolbar>
+    <main class="fundo">
+      <div class="outerDiv">
+        <div class="innerDiv">
+          <center><h2>Alterar dados do colaborador</h2>
+            <a href="/colaboradores"><strong>Voltar</strong></a>
+            <hr>          
+            <div class="espacoLateral">
+              <form action="/colaboradores/update/<%= colaborador._id%>" method="post">
+                <div id="message">
+                  <p v-if="errors.length">
+                    <ul>
+                      <li v-for="error in errors">{{ error }}</li>
+                    </ul>
+                  </p>
+                </div>
+                <table class="cadastro">
+                  <tbody>
+                    <tr>
+                      <td id="nomeCampo">CPF</td>
+                      <td id="campo"><input type="text" name="cpf" value="<%= colaborador.cpf %>" id="cpf"/></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">Nome</td>
+                      <td id="campo"><input type="text" name="nome" value="<%= colaborador.nome %>" /></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">E-mail</td>
+                      <td id="campo"><input type="email" name="email" v-model="email" value="<%= colaborador.email %>" /></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">Setor</td>
+                      <td id="campo"><select name="setor" v-model="setor" ><option disabled value="<%= colaborador.setor %>" >Selecione um setor</option><option v-for="setor in setores"> {{ setor.nome }}</option></select></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">Função</td>
+                      <td id="campo"><input type="text" name="funcao" value="<%= colaborador.funcao %>" /></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">Data de Início</td>
+                      <td id="campo"><input type="date" name="dataInicio" v-model="dataInicio" value="<%= colaborador.dataInicio %>" /></td>
+                    </tr>
+                    <tr>
+                      <td id="nomeCampo">Celular corporativo</td>
+                      <td id="campo"><label class="container"><input type="checkbox" name="celularCorporativo" v-model="celularCorporativo" /><span class="checkmark"></span><span v-if="celularCorporativo">Sim</span></label></td>
+                    </tr>
+                    <tr><center>
+                      <td colspan=2><center><button type="submit" class="post">Atualizar cadastro</button></center></td>
+                      <td></td></center>
+                    </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
+          </center>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span>&copy; 2018</span>
+    </footer>
+  </v-app>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+<script>
+Vue.component('page', {
+  template: '#page'
+})
+new Vue({
+  el: '#app',
+  data: {
+    errors: [],
+    fixed: true,
+    title: 'Cadastro de colaboradores (INE5646)',
+    cpf: '',
+    nome: '',
+    email: '',
+    setor: '',
+    funcao: '',
+    dataInicio: '',
+    celularCorporativo: '',
+    setores: [
+    { nome: 'Administrativo' },
+    { nome: 'Almoxarifado' },
+    { nome: 'Comercial' },
+    { nome: 'ComEx' },
+    { nome: 'Compras' },
+    { nome: 'Consultoria' },
+    { nome: 'Controladoria' },
+    { nome: 'Design' },
+    { nome: 'DP' },
+    { nome: 'Expedição' },
+    { nome: 'Faturamento' },
+    { nome: 'Financeiro' },
+    { nome: 'Logística' },
+    { nome: 'Manutenção' },
+    { nome: 'Marketing' },
+    { nome: 'Mecânica' },
+    { nome: 'Obras' },
+    { nome: 'P&D' },
+    { nome: 'PCP' },
+    { nome: 'Produção' },
+    { nome: 'Projetos' },
+    { nome: 'Qualidade' },
+    { nome: 'RH' },
+    { nome: 'TI' },
+    { nome: 'Vendas' }
+    ],
+  }, 
+  methods:{
+    checkForm:function(e) {
+      this.errors = [];
+      if(!this.cpf) { this.errors.push("O campo CPF é obrigatório."); } 
+      else if(!this.validCPF(this.cpf)) {this.errors.push("Preencha no formato 000.000.000-00"); }
+      if(!this.nome) this.errors.push("O campo Nome é obrigatório."); 
+      if(!this.setor) this.errors.push("O campo Setor é obrigatório.");
+      if(!this.funcao) this.errors.push("O campo Função é obrigatório."); 
+      if(!this.dataInicio) this.errors.push("O campo Data de Início é obrigatório."); 
+      if(!this.email) { this.errors.push("O campo e-mail é obrigatório");} 
+      else if(!this.validEmail(this.email)) { this.errors.push("Inserir e-mail válido."); }
+
+      if(!this.errors.length) return true;
+      e.preventDefault();
+    },
+    validEmail:function(email) {
+      var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    validCPF:function(cpf) {
+      var re = /^(\d{3}\.\d{3}\.\d{3}-\d{2})$/;
+      return re.test(cpf);
+    }
+  }
+
+})
+</script>
+</body>
 </html>
