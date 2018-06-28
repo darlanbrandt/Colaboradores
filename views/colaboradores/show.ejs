@@ -55,7 +55,7 @@
                     
                     <tr>
                       <td>Data de início</td>
-                      <td><%= colaborador.dataInicio %></td>
+                      <td>{{dataCorrigida(dataInicio)}}</td>
                     </tr>
                     <tr>
                       <td>Celular corporativo</td>
@@ -93,7 +93,17 @@ new Vue({
   el: '#app',
   data: {
     fixed: true,
-    title: 'Cadastro de colaboradores (INE5646)'
+    title: 'Cadastro de colaboradores (INE5646)',
+    dataInicio: '<%= colaborador.dataInicio %>'
+  },
+  methods: {
+    dataCorrigida: function(value) {
+      var novaData = new Date(this.dataInicio);
+      var dia=novaData.getDate()+1;
+      var mes=novaData.getMonth()+1;
+      var ano=novaData.getFullYear();
+      return novaData = dia + '/' + mes + '/' + ano;
+    }
   }
 })
 </script>

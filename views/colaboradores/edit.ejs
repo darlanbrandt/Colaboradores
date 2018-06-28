@@ -30,7 +30,7 @@
             <a href="/colaboradores"><strong>Voltar</strong></a>
             <hr>          
             <div class="espacoLateral">
-              <form action="/colaboradores/update/<%= colaborador._id%>" method="post">
+              <form action="/colaboradores/update/<%= colaborador._id%>" method="post" @submit="checkForm">
                 <div id="message">
                   <p v-if="errors.length">
                     <ul>
@@ -42,11 +42,11 @@
                   <tbody>
                     <tr>
                       <td id="nomeCampo">CPF</td>
-                      <td id="campo"><input type="text" name="cpf" value="<%= colaborador.cpf %>" id="cpf"/></td>
+                      <td id="campo"><input type="text" name="cpf" value="<%= colaborador.cpf %>" id="cpf" v-model="cpf"/></td>
                     </tr>
                     <tr>
                       <td id="nomeCampo">Nome</td>
-                      <td id="campo"><input type="text" name="nome" value="<%= colaborador.nome %>" /></td>
+                      <td id="campo"><input type="text" name="nome" value="<%= colaborador.nome %>" v-model="nome"/></td>
                     </tr>
                     <tr>
                       <td id="nomeCampo">E-mail</td>
@@ -54,11 +54,11 @@
                     </tr>
                     <tr>
                       <td id="nomeCampo">Setor</td>
-                      <td id="campo"><select name="setor" v-model="setor" ><option disabled value="<%= colaborador.setor %>" >Selecione um setor</option><option v-for="setor in setores"> {{ setor.nome }}</option></select></td>
+                      <td id="campo"><select name="setor" v-model="setor" value="<%= colaborador.setor %>" />><option disabled value="" >Selecione um setor</option><option v-for="setor in setores"> {{ setor.nome }}</option></select></td>
                     </tr>
                     <tr>
                       <td id="nomeCampo">Função</td>
-                      <td id="campo"><input type="text" name="funcao" value="<%= colaborador.funcao %>" /></td>
+                      <td id="campo"><input type="text" name="funcao" value="<%= colaborador.funcao %>" v-model="funcao" /></td>
                     </tr>
                     <tr>
                       <td id="nomeCampo">Data de Início</td>
@@ -100,13 +100,13 @@ new Vue({
     errors: [],
     fixed: true,
     title: 'Cadastro de colaboradores (INE5646)',
-    cpf: '',
-    nome: '',
-    email: '',
-    setor: '',
-    funcao: '',
-    dataInicio: '',
-    celularCorporativo: '',
+    cpf: '<%= colaborador.cpf %>',
+    nome: '<%= colaborador.nome %>',
+    email: '<%= colaborador.email %>',
+    setor: '<%= colaborador.setor %>',
+    funcao: '<%= colaborador.funcao %>',
+    dataInicio: '<%= colaborador.dataInicio %>',
+    celularCorporativo: '<%= colaborador.dataInicio %>',
     setores: [
     { nome: 'Administrativo' },
     { nome: 'Almoxarifado' },
